@@ -1,24 +1,20 @@
 // Node imports
 import * as dotenv from 'dotenv';
-import express from 'express';
-import mssql from 'mssql';
+import * as express from 'express';
 
-// Bootstrao the express application
-const app = express();
+// App imports
+import routes from './routes';
 
 // Import config
 dotenv.config();
 
-// Routes
-app.get('/', (req, res) => res.send('Hello World!'));
+// Bootstrap the express application
+const app = express();
 
-// Configure MSSQL DB Connection
-const config = {
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    server: process.env.DB_HOST,
-    user: process.env.DB_USER,
-};
+// Routes
+app.use('/', routes);
 
 // Start the server
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(3000, () => {
+    console.log('Example app listening on port 3000!');
+});
