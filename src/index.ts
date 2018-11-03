@@ -1,13 +1,12 @@
 // Node imports
-import * as dotenv from 'dotenv';
 import * as express from 'express';
 import * as helmet from 'helmet';
+import * as fs from 'fs';
+import * as https from 'https';
 
 // App imports
 import routes from './routes';
-
-// Import config
-dotenv.config();
+import { appConfig } from './config/app'; 
 
 // Bootstrap the express application
 const app = express();
@@ -23,7 +22,11 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', routes);
 
-// Start the server
-app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
-});
+// Configure HTTPS
+const privateKey  = fs.readFileSync(appConfig.key, 'utf8');
+const certificate = fs.readFileSync(appConfig.certificate, 'utf8');
+const credentials = {key: privateKey, cert: certificate};
+
+// Create and start the server 
+const httpsServer = https.createServer(credentials, app);
+httpsServer.listen(443);
