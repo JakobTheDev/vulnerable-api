@@ -12,5 +12,5 @@ export const mssqlConfig: mssql.config = {
     },
     password: process.env.DB_PASSWORD,
     server: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER,
+    user: process.env.DB_USER
 };
