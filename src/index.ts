@@ -29,11 +29,11 @@ const certificate = fs.readFileSync(appConfig.certificate, 'utf8');
 const credentials = {key: privateKey, cert: certificate};
 
 // Create and start the server 
-const httpServer = https.createServer(credentials, app);
+const httpServer = http.createServer( app);
 const httpsServer = https.createServer(credentials, app);
 httpServer.listen(appConfig.portHttp);
 httpsServer.listen(appConfig.portHttps);
 
 
 // Log for visibiity
-console.log(`${appConfig.name} listening on HTTP port ${appConfig.portHttp} and HTTPS port ${appConfig.portHttp}`);
+console.log(`${appConfig.name} listening on HTTP port ${appConfig.portHttp} and HTTPS port ${appConfig.portHttp}`); 
