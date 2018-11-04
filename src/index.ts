@@ -38,4 +38,4 @@ httpsServer.listen(appConfig.portHttps);
 
 
 // Log for visibiity
-console.log(`${appConfig.name} listening on HTTP port ${appConfig.portHttp} and HTTPS port ${appConfig.portHttp}`); 
+console.log(`${appConfig.name} listening on HTTP port ${appConfig.portHttp} and HTTPS port ${appConfig.portHttps}`); 
