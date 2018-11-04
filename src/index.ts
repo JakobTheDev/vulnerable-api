@@ -28,6 +28,8 @@ const privateKey  = fs.readFileSync(appConfig.key, 'utf8');
 const certificate = fs.readFileSync(appConfig.certificate, 'utf8');
 const credentials = {key: privateKey, cert: certificate};
 
+console.log(`Loaded certificate from ${appConfig.certificate} and key from ${appConfig.key}`); 
+
 // Create and start the server 
 const httpServer = http.createServer( app);
 const httpsServer = https.createServer(credentials, app);
