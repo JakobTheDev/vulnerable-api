@@ -29,4 +29,4 @@ const credentials = {key: privateKey, cert: certificate};
 
 // Create and start the server 
 const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(443);
+httpsServer.listen(appConfig.port);
