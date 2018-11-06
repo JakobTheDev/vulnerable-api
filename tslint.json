@@ -5,10 +5,26 @@
     ],
     "jsRules": {},
     "rules": {
-        "interface-name": [false],
-        "no-console": [false],
-        "quotemark": [true, "single"],
-        "max-line-length": [true, "200"]
+        "interface-name": [
+            false
+        ],
+        "no-console": [
+            false
+        ],
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "object-literal-sort-keys": [
+            false
+        ],
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ]
     },
     "rulesDirectory": []
 }
