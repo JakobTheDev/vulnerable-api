@@ -25,7 +25,7 @@ export const getSearch = (req: Request, res: Response) => {
                 connection.close();
             }).catch((err: Error) => {
                 console.log(err);
-                res.send(JSON.stringify(err));
+                res.status(500).send(JSON.stringify(err));
                 connection.close();
             });
     }).catch((err: Error) => {
